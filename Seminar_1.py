@@ -13,18 +13,19 @@
 # Напишите программу, которая принимает на вход координаты точки (X и Y), причём X ≠ 0 и Y ≠ 0 и выдаёт
 # номер четверти плоскости, в которой находится эта точка (или на какой оси она находится).
 
-x, y = int(input("Введите х: ")), int(input("Введите y: "))
+# x, y = int(input("Введите х: ")), int(input("Введите y: "))
+#
+#
+# def place_dekart(x, y):
+#     if x > 0 and y > 0:
+#         return 1
+#     elif x < 0 and y > 0:
+#         return 2
+#     elif x < 0 and y < 0:
+#         return 3
+#     else:
+#         return 4
+#
+#
+# print(f"Номер четверти на координатной плоскости: {place_dekart(x, y)}")
 
-
-def place_dekart(x, y):
-    if x > 0 and y > 0:
-        return 1
-    elif x < 0 and y > 0:
-        return 2
-    elif x < 0 and y < 0:
-        return 3
-    else:
-        return 4
-
-
-print(f"Номер четверти на координатной плоскости: {place_dekart(x, y)}")
