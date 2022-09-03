@@ -59,4 +59,4 @@ Ax, Ay, Bx, By = int(input("Точка А, х: ")), int(input("Точка А, у
     input("Точка B, y: "))
 
 distance = sqrt(((Ax - Bx) ** 2) + ((Ay - By) ** 2))
-print(round(distance, 3))
+print(int(distance * 100) / 100)
