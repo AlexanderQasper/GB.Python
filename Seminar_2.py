@@ -28,8 +28,26 @@
 # b = 'pythonpythonpythonpythonpython'
 # print(b.count(a))
 
-# 4. Орёл и решка
+# 4. Орёл и решка. ОРРОРОРООРРРО - 3, ООООООРРРОРОРРРРРРР - 7
 
-stroka = input().split('О')
+# stroka = input().split('О')
+# print(max(map(len, stroka)))
 
-print(max(map(len, stroka)))
+# 5. Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
+
+# 1 var. OLD School!!!
+# number = int(input())
+# sum = 0
+#
+# while number > 0:
+#     digit = number % 10
+#     sum += digit
+#     number //= 10
+#
+# print(sum)
+
+# 2 var. В одну строчку! (не надо так...)
+
+#print(*[sum(int(i) for i in input() if i.isnumeric())])
+
+
