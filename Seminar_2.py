@@ -60,24 +60,32 @@
 # Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
 
 
-from random import randint
+# from random import randint
+#
+# number = int(input())
+# pos1 = int(input(f'Введите первую позицию (не больше) {number} - '))
+# pos2 = int(input(f'Введите вторую позицию (не больше) {number} - '))
+#
+# if pos1 <= number and pos2 <= number:
+#     with open("file.txt", "w") as f:
+#         numbers = []
+#         for i in range(number):
+#             numbers.append(randint(number * -1, number + 1))
+#             f.write(str(numbers[i]) + '\n')
+#     print(numbers)
+#
+#     mulptiple_num = numbers[pos1 - 1] * numbers[pos2 - 1]
+#     print("Произведение: ", mulptiple_num)
+#     with open("file.txt", "a") as f:
+#         f.write(f'Произведение позиций массива = {str(mulptiple_num)}')
+#
+# else:
+#     print('Ошибка!')
 
-number = int(input())
-pos1 = int(input(f'Введите первую позицию (не больше) {number} - '))
-pos2 = int(input(f'Введите вторую позицию (не больше) {number} - '))
+# 8. Реализуйте алгоритм перемешивания списка.
 
-if pos1 <= number and pos2 <= number:
-    with open("file.txt", "w") as f:
-        numbers = []
-        for i in range(number):
-            numbers.append(randint(number * -1, number + 1))
-            f.write(str(numbers[i]) + '\n')
-    print(numbers)
+import random
 
-    mulptiple_num = numbers[pos1 - 1] * numbers[pos2 - 1]
-    print("Произведение: ", mulptiple_num)
-    with open("file.txt", "a") as f:
-        f.write(f'Произведение позиций массива = {str(mulptiple_num)}')
-
-else:
-    print('Ошибка!')
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+random.shuffle(numbers)
+print(numbers)
