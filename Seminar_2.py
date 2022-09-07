@@ -48,7 +48,7 @@
 
 # 2 var. В одну строчку! (не надо так...)
 
-#print(*[sum(int(i) for i in input() if i.isnumeric())])
+# print(*[sum(int(i) for i in input() if i.isnumeric())])
 
 # 6. Задайте список из n чисел последовательности $(1+\frac 1 n)^n$ и выведите на экран их сумму.
 # summa = 0
@@ -59,3 +59,25 @@
 # 7. Задайте список из N элементов, заполненных числами из промежутка [-N, N].
 # Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
 
+
+from random import randint
+
+number = int(input())
+pos1 = int(input(f'Введите первую позицию (не больше) {number} - '))
+pos2 = int(input(f'Введите вторую позицию (не больше) {number} - '))
+
+if pos1 <= number and pos2 <= number:
+    with open("file.txt", "w") as f:
+        numbers = []
+        for i in range(number):
+            numbers.append(randint(number * -1, number + 1))
+            f.write(str(numbers[i]) + '\n')
+    print(numbers)
+
+    mulptiple_num = numbers[pos1 - 1] * numbers[pos2 - 1]
+    print("Произведение: ", mulptiple_num)
+    with open("file.txt", "a") as f:
+        f.write(f'Произведение позиций массива = {str(mulptiple_num)}')
+
+else:
+    print('Ошибка!')
