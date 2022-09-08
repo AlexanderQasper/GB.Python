@@ -70,7 +70,7 @@
 #     with open("file.txt", "w") as f:
 #         numbers = []
 #         for i in range(number):
-#             numbers.append(randint(number * -1, number + 1))
+#             numbers.append(randint(number * -1, number))
 #             f.write(str(numbers[i]) + '\n')
 #     print(numbers)
 #
