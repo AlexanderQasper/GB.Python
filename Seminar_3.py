@@ -35,4 +35,14 @@
 
 # 3. Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между
 # максимальным и минимальным значением дробной части элементов.
+import math
 
+array = [1.1, 1.2, 3.1, 5, 10.01]
+frac_array = []
+
+for i in range(len(array)):
+    frac_num, integral_num = math.modf(array[i])
+    if frac_num != 0:
+        frac_array.append(round(frac_num, 3))
+
+print(max(frac_array) - min(frac_array))
