@@ -35,14 +35,27 @@
 
 # 3. Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между
 # максимальным и минимальным значением дробной части элементов.
-import math
+# import math
+#
+# array = [1.1, 1.2, 3.1, 5, 10.01]
+# frac_array = []
+#
+# for i in range(len(array)):
+#     frac_num, integral_num = math.modf(array[i])
+#     if frac_num != 0:
+#         frac_array.append(round(frac_num, 3))
+#
+# print(max(frac_array) - min(frac_array))
 
-array = [1.1, 1.2, 3.1, 5, 10.01]
-frac_array = []
+# 4. Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 
-for i in range(len(array)):
-    frac_num, integral_num = math.modf(array[i])
-    if frac_num != 0:
-        frac_array.append(round(frac_num, 3))
+# 1 вариант
+#print(bin(int(input()))[2:])
 
-print(max(frac_array) - min(frac_array))
+# 2 вариант
+# num = int(input())
+# binar = ''
+# while num > 0:
+#     binar += str(num % 2)
+#     num //= 2
+# print(binar)
