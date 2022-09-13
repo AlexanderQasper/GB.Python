@@ -8,11 +8,28 @@
 
 # 2. Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
 
-number = int(input('Введите число >>  '))
-deliteli = []
+# number = int(input('Введите число >>  '))
+# deliteli = []
+#
+# for i in range(1, number // 2 + 1):
+#     if number % i == 0:
+#         deliteli.append(i)
+#
+# print(f'Делители числа {number}: {deliteli}')
 
-for i in range(1, number // 2 + 1):
-    if number % i == 0:
-        deliteli.append(i)
+# 3. Задайте последовательность чисел. Напишите программу, которая выведет список неповторяющихся элементов исходной последовательности.
+# numbers = input('Введите числа через пробел >> ').split()
+#
+# # Строчечной функцией
+# print(f'Уникальные элементы последовательности: {set(numbers)}')
+#
+# # Циклом
+# uniq_num = []
+# for i in range(len(numbers)):
+#     if numbers[i] not in uniq_num:
+#         uniq_num.append(numbers[i])
+#
+# print(uniq_num)
 
-print(f'Делители числа {number}: {deliteli}')
+
+
