@@ -1,97 +1,94 @@
-# import pygame as pg
-#
-# pg.init()
-#
-# sizeblock = 100
-# margine = 15
-#
-# WIDTH = HEIGTH = sizeblock * 3 + margine * 4
-# RES = WIDTH, HEIGTH
-#
-# sc = pg.display.set_mode(RES)
-# pg.display.set_caption('Крестики-нолики!')
-#
-# clock = pg.time.Clock()
-#
-# FPS = 30
-#
-# BLACK = (0, 0, 0)
-# WHITE = (255, 255, 255)
-# ROZOVI = (189, 30, 128)
-# FIOLETOVI = (125, 81, 196)
-# NASROZOVI = (255, 20, 147)
-# ORHID = (138, 43, 226)
-#
-# mas = [[0] * 3 for i in range(3)]
-# query = 0
-#
-#
-# def win_check(mas, sing):
-#     zeroes = 0
-#     for row in mas:
-#         zeroes += row.count(0)
-#         if row.count(sing) == 3:
-#             return sing
-#             print(1)
-#     for col in range(3):
-#         if mas[0][col] == sing and mas[1][col] == sing and mas[2][col] == sing:
-#             return sing
-#     if mas[0][0] == sing and mas[1][1] == sing and mas[2][2] == sing:
-#         return sing
-#     if mas[0][2] == sing and mas[1][1] == sing and mas[2][0] == sing:
-#         return sing
-#     if zeroes == 0:
-#         return 'No win, No defeat'
-#     return False
-#
-#
-# while True:
-#     sc.fill(BLACK)
-#     for event in pg.event.get():
-#         if event.type == pg.QUIT:
-#             pg.quit()
-#             quit()
-#         elif event.type == pg.MOUSEBUTTONDOWN:
-#             x_mouse, y_mouse = pg.mouse.get_pos()
-#             col = x_mouse // (sizeblock + margine)
-#             row = y_mouse // (sizeblock + margine)
-#             if mas[col][row] == 0:
-#                 if query % 2 == 0:
-#                     mas[col][row] = 'x'
-#                 else:
-#                     mas[col][row] = 'o'
-#                 query += 1
-#
-#     for row in range(3):
-#         for col in range(3):
-#             if mas[col][row] == 'x':
-#                 color = FIOLETOVI
-#             elif mas[col][row] == 'o':
-#                 color = ROZOVI
-#             else:
-#                 color = WHITE
-#             x = col * sizeblock + (col + 1) * margine
-#             y = row * sizeblock + (row + 1) * margine
-#             pg.draw.rect(sc, color, (x, y, sizeblock, sizeblock))
-#             if color == FIOLETOVI:
-#                 pg.draw.line(sc, NASROZOVI, (x + 10, y + 10), (x + sizeblock - 10, y + sizeblock - 10), 5)
-#                 pg.draw.line(sc, NASROZOVI, (x + sizeblock - 10, y + 10), (x + 10, y + sizeblock - 10), 5)
-#             elif color == ROZOVI:
-#                 pg.draw.circle(sc, ORHID, (x + sizeblock // 2, y + sizeblock // 2), sizeblock // 2 - 5, 5)
-#
-#         if (query - 1) % 2 == 0:
-#             game_over = win_check(mas, 'x')
-#         else:
-#             game_over = win_check(mas, 'o')
-#
-#         if game_over:
-#             sc.fill(BLACK)
-#             font = pg.font.SysFont('Calibri', 45)
-#             text1 = font.render(game_over, True, WHITE, 5)
-#             text_rect = text1.get_rect()
-#             text_x = sc.get_width() / 2 - text_rect.width / 2
-#             text_y = sc.get_height() / 2 - text_rect.height / 2
-#             sc.blit(text1, [text_x, text_y])
-#
-#     pg.display.update()
-#     clock.tick(FPS)
+import pygame as pg
+import sys
+
+
+def check_win(mas, sign):
+    zeroes = 0
+    for row in mas:
+        zeroes += row.count(0)
+        if row.count(sign) == 3:
+            return sign
+    for col in range(3):
+        if mas[0][col] == sign and mas[1][col] == sign and mas[2][col] == sign:
+            return sign
+    if mas[0][0] == sign and mas[1][1] == sign and mas[2][2]:
+        return sign
+    if mas[0][2] == sign and mas[1][1] == sign and mas[2][0]:
+        return sign
+    if zeroes == 0:
+        return 'Piece'
+    return False
+
+
+pg.init()
+sizeblock = 100
+margine = 15
+width = heigth = sizeblock * 3 + margine * 4
+size_window = (width, heigth)
+screen = pg.display.set_mode(size_window)
+
+pg.display.set_caption('Крестики-нолики!')
+
+black = (0, 0, 0)
+red = (255, 0, 0)
+green = (0, 255, 0)
+white = (255, 255, 255)
+mas = [[0] * 3 for i in range(3)]
+
+query = 0  # какой игрок ходит
+game_over = False
+
+while True:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            pg.quit()
+            sys.exit()
+        elif event.type == pg.MOUSEBUTTONDOWN and not game_over:
+            x_mouse, y_mouse = pg.mouse.get_pos()
+            col = x_mouse // (sizeblock + margine)
+            row = y_mouse // (sizeblock + margine)
+            if mas[row][col] == 0:
+                if query % 2 == 0:
+                    mas[row][col] = 'x'
+                else:
+                    mas[row][col] = 'o'
+                query += 1
+
+        elif event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
+            game_over = False
+            mas = [[0] * 3 for i in range(3)]
+            query = 0
+            screen.fill(black)
+
+    if not game_over:
+        for row in range(3):
+            for col in range(3):
+                if mas[row][col] == 'x':
+                    color = red
+                elif mas[row][col] == 'o':
+                    color = green
+                else:
+                    color = white
+                x = col * sizeblock + (col + 1) * margine
+                y = row * sizeblock + (row + 1) * margine
+                pg.draw.rect(screen, color, (x, y, sizeblock, sizeblock))
+                if color == red:
+                    pg.draw.line(screen, white, (x + 7, y + 7), (x + sizeblock - 7, y + sizeblock - 7), 3)
+                    pg.draw.line(screen, white, (x + 7, y + sizeblock - 7), (x + sizeblock - 7, y + 7), 3)
+                elif color == green:
+                    pg.draw.circle(screen, white, (x + sizeblock // 2, y + sizeblock // 2), (sizeblock // 2 - 7), 3)
+        if (query - 1) % 2 == 0:
+            game_over = check_win(mas, 'x')
+        else:
+            game_over = check_win(mas, 'o')
+
+        if game_over:
+            screen.fill(black)
+            font = pg.font.SysFont('stxingkai', 80)
+            text1 = font.render(game_over, True, white)
+            text_rect = text1.get_rect()
+            text_x = screen.get_width() / 2 - text_rect.width / 2
+            text_y = screen.get_height() / 2 - text_rect.height / 2
+            screen.blit(text1, [text_x, text_y])
+
+    pg.display.update()
