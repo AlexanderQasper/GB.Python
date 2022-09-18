@@ -88,6 +88,7 @@ def write_file(name, st):
     with open(name, 'w') as data:
         data.write(st)
 
+
 # создание коэффициентов многочлена
 def create_mn(k):
     lst = [random.randint(0, 101) for i in range(k + 1)]
@@ -197,3 +198,4 @@ write_file("sem4_res.txt", create_str(lst_new))
 with open('sem4_res.txt', 'r') as data:
     st3 = data.readlines()
 print(f"Результирующий многочлен {st3}")
+
