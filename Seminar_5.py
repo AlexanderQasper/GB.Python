@@ -1,10 +1,8 @@
 # 1. Напишите программу, удаляющую из текста все слова, содержащие ""абв"".
-orig_text = 'марат карат забвение квартал абвед'
+orig_text = 'марат карат забвение квартал абдоминальный абвер'
+text1 = orig_text.split()
 
-text1 = list(orig_text)
-print(text1)
-
-
+print(*filter(lambda x: 'абв' not in x, text1))
 
 
 # 3. Tic- Tac
