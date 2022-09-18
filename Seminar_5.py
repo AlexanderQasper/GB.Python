@@ -229,6 +229,9 @@ def rle_decode(data):
             count = ''
     return decode
 
-encoded_val = rle_encode('AAAAAAFDDCCCCCCCAEEEEEEEEEEEEEEEEE')
-print(encoded_val)
-print(rle_decode(encoded_val))
+outfile = open('sem5_RLE_out.txt', 'w', encoding='utf-8')
+with open('sem5_RLE_in.txt', "r", encoding='utf-8') as rfile:
+    for line in rfile:
+        outfile.write(rle_encode(line))
+outfile.close()
+
