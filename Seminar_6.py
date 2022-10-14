@@ -76,16 +76,16 @@
 
 # 5.2 Без функции sort()
 
-def my_func(lst1):
-    max_dig = max(lst1)
-    lst1.remove(max_dig)
-    premax_dig = max(lst1)
-    return max_dig + premax_dig
-
-
-digits = [int(i) for i in input('Введите числа через пробел: ').split()]
-
-print(f'Сумма двух больших чисел равна: {my_func(digits)}')
+# def my_func(lst1):
+#     max_dig = max(lst1)
+#     lst1.remove(max_dig)
+#     premax_dig = max(lst1)
+#     return max_dig + premax_dig
+#
+#
+# digits = [int(i) for i in input('Введите числа через пробел: ').split()]
+#
+# print(f'Сумма двух больших чисел равна: {my_func(digits)}')
 
 
 
