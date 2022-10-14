@@ -24,5 +24,3 @@ print(summa)
 
 # После
 print(sum(v for i, v in enumerate(array) if i % 2))
-
-#
