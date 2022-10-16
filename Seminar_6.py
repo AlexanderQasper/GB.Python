@@ -110,6 +110,20 @@
 #     символ введен после нескольких чисел, то вначале нужно добавить сумму этих чисел к полученной
 #     ранее сумме и после этого завершить программу.
 
-while True:
-    digits = list(map(int, input('Введите числа через пробел: ').split()))
-    print(sum(digits))
+
+sum_res = 0
+ex = False
+while ex == False:
+    number = input('Введите числа или q для выхода: ').split()
+
+    res = 0
+    for el in range(len(number)):
+        if number[el].lower() == 'q':
+            ex = True
+            break
+        else:
+            res += int(number[el])
+    sum_res += res
+    print(f'Текущая сумма = {sum_res}')
+
+print(f'Итоговая сумма = {sum_res}')
