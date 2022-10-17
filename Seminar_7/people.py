@@ -8,8 +8,9 @@ def input_people():
     age = input("Введите дату рождения (пример 11.11.1990) : ")
     list_data = id + ";" + last_name + ";" + name + ";" + second_name + ";" + job_title + ";" + phone_number + ";" + age
     print(list_data)
-    file = open("database1.csv", "a", newline='')
-    file.write(list_data + '\n')
+    file = open("database1.csv", "a", encoding='utf-8', newline='')
+    file.write('\n' + list_data)
+    print('Запись успешно внесена!')
     file.close()
 
 
@@ -31,7 +32,7 @@ def output_people():
 
 def removal():
     last_name = (input("Введите фамилию сотрудника, которого надо удалить: "))
-    with open("database1.csv", "r+") as file:
+    with open("database1.csv", "r+", encoding='utf-8') as file:
         all = file.read()
         humans = all.split('\n')
 
@@ -48,7 +49,7 @@ def removal():
 
 
 def change():
-    with open("database1.csv", "r+") as file:
+    with open("database1.csv", "r+", encoding='utf-8') as file:
         last_name = input("Введите фамилию сотрудника, которого изменить: ")
         all = file.read()
         humans = all.split('\n')
