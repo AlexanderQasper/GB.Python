@@ -56,10 +56,10 @@ def change():
         for human in humans:
             elements = human.split(';')
             if elements[1] == last_name:
-                print('что хотите изменить?: ')
+                print('что хотите изменить?')
                 print('Если должность, введите 1: ')
                 print('Если номер телефона, введите 2: ')
-                q = (input())
+                q = (input('Ваш выбор: '))
                 if q == '1':
                     new_job = input('введите новую должность: ')
                     elements[4] = new_job
