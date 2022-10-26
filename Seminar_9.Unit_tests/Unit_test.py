@@ -28,9 +28,11 @@ class Testcases(unittest.TestCase):
     def test_multipliers_num(self):
         self.assertIn(2, multipliers_num(10))
 
-    # Is
+    # IsNot
+    def test_delete_str(self):
+        self.assertIsNot(delete_str('марат карат забвение квартал абвер'), ['марат', 'карат', 'квартал', 'день'])
 
-    # isnot
+    # Is
 
     # IsNone
 

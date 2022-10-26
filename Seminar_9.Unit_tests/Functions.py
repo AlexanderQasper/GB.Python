@@ -64,3 +64,11 @@ def multipliers_num(x):
         if number % i == 0:
             multipliers.append(i)
     return multipliers
+
+
+# 6. Напишите программу, удаляющую из текста все слова, содержащие ""абв"".
+def delete_str(text):
+    end_text = list(filter(lambda x: 'абв' not in x, text.split()))
+    return end_text
+
+
