@@ -16,25 +16,19 @@ def distance_point(a, b, c, d):
 
 
 def place_dekart(x, y):
-    try:
-        if x > 0 and y > 0:
-            return 1
-        elif x < 0 and y > 0:
-            return 2
-        elif x < 0 and y < 0:
-            return 3
-        else:
-            return 4
-    except:
-        return 'Ошибка!'
+    if x > 0 and y > 0:
+        return 1
+    elif x < 0 and y > 0:
+        return 2
+    elif x < 0 and y < 0:
+        return 3
+    else:
+        return 4
 
 
-#2. Напишите программу, которая найдёт произведение пар чисел списка.
-#Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 
-
-array = [1, 2, 3, 4, 5, 6]
-
+# 2. Напишите программу, которая найдёт произведение пар чисел списка.
+# Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 
 def multiple_arrays_index(start_array):
     end_array = []
@@ -47,7 +41,3 @@ def multiple_arrays_index(start_array):
             end_array.append(start_array[i - 1] * start_array[-i])
         end_array.append((start_array[floor(len(start_array) / 2)]) ** 2)
         return end_array
-
-
-print(type(multiple_arrays_index(array)) == list)
-print(multiple_arrays_index(array))

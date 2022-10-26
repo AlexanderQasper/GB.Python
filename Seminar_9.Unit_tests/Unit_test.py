@@ -10,14 +10,13 @@ class Testcases1(unittest.TestCase):
     def test_place_dekart1(self):
         self.assertNotEqual(place_dekart(1, 2), 3)
 
-# Этот, почему-то проходит всегда ОК, хотя вроде должен обрабатывать эксепшен (прописан в функции специально)
+    # Этот, почему-то проходит всегда ОК, хотя вроде должен обрабатывать эксепшен (прописан в функции специально)
+    # Этот момент непонятен, гуглёж только
     def test_place_dekart2(self):
-        self.assertRaises(Exception, place_dekart('3', 3))
+        self.assertRaises(TypeError, place_dekart, '4', 3)
 
     def test_miltiple_arrays_index(self):
-        self.assertTrue(type(multiple_arrays_index(array)) == list)
-
-
+        self.assertTrue(type(multiple_arrays_index([1, 2, 3, 4, 5, 6])) == list)
 
 
 if __name__ == '__main__':
