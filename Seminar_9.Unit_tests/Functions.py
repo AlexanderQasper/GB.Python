@@ -72,3 +72,15 @@ def delete_str(text):
     return end_text
 
 
+# 7. Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между
+#максимальным и минимальным значением дробной части элементов.
+def min_and_max(array):
+    frac_array = []
+    for i in range(len(array)):
+        frac_num, integral_num = modf(array[i])
+        if frac_num != 0:
+            frac_array.append(round(frac_num, 3))
+
+    return max(frac_array) - min(frac_array)
+
+#print(min_and_max([1.1, 1.2, 3.1, 5, 10.01]))

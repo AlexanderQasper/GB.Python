@@ -33,6 +33,11 @@ class Testcases(unittest.TestCase):
         self.assertIsNot(delete_str('марат карат забвение квартал абвер'), ['марат', 'карат', 'квартал', 'день'])
 
     # Is
+    def test_min_and_max(self):
+        x = min_and_max([1.1, 1.2, 3.1, 5, 10.01])
+        y = x
+        self.assertIs(x, y)
+
 
     # IsNone
 
