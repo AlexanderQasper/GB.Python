@@ -4,15 +4,21 @@ import copy
 
 
 class Matrix:
+
+    # Перегружаем метод инициализации в конструктор класса. Если правильно понял, класс матрица при вызове сразу
+    # получают сущнность мартицы
     def __init__(self, matrix):
         self.matrix = matrix
 
+    # Вмешиваемся в принты, создаём пустую строку и добавляем циклом в неё числа матрицы, переводя их в строку и
+    # используем метод джоин + переход на новую строку для красоты
     def __str__(self):
         s = ''
         for i in range(len(self.matrix)):
             s = s + '\t'.join(map(str, self.matrix[i])) + '\n'
         return s
 
+    # Перехватываем встроенный функционал сложения, прописывая, что и как нужно складывать. Вложенным циклом, как обычныую функцию сложения матрицы
     def __add__(self, other):
         if len(self.matrix) != len(other.matrix):
             return None
@@ -31,4 +37,3 @@ print(matrix1)
 print(matrix2)
 end_matrix = matrix1 + matrix2
 print(end_matrix)
-
