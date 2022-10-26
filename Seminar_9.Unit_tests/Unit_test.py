@@ -40,9 +40,13 @@ class Testcases(unittest.TestCase):
 
 
     # IsNone
+    def test_summ_digits(self):
+        self.assertIsNone(summ_digits(11))
+
 
     # IsNotNone
-
+    def test_orel_reshka(self):
+        self.assertIsNotNone(orel_reshka("ОРРОРОРООРРРО"))
 
 if __name__ == '__main__':
     unittest.main()
